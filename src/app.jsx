@@ -1,24 +1,18 @@
-import React, { Component } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Home from './routes/home';
+import VideoInfo from './routes/videoInfo';
+import Navbar from './components/navbar';
 
-class App extends Component {
-  state = {
-    count: 0,
-  };
-  render() {
-    return (
-      <>
-        <span>{this.state.count}</span>
-        <button
-          onClick={() => {
-            this.setState((state) => {
-              return { count: state.count + 1 };
-            });
-          }}
-        >
-          Click
-        </button>
-      </>
-    );
-  }
+function App() {
+  return (
+    <BrowserRouter>
+      <Navbar />
+      <Routes>
+        <Route path={`${process.env.PUBLIC_URL}/`} element={<Home />} />
+        <Route path="/video/:videoID" element={<VideoInfo />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
+
 export default App;

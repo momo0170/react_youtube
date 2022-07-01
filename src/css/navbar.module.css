@@ -1,0 +1,36 @@
+button {
+  cursor: pointer;
+  background-color: transparent;
+  border: 0;
+  margin: 0 10px;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+  position: sticky;
+  top: 0;
+  background-color: white;
+}
+.navbar-logo {
+  color: red;
+  margin: 0 5px;
+  margin-left: 60px;
+  font-size: 32px;
+}
+
+.navbar-name {
+  font-size: 32px;
+}
+
+.navbar-input {
+  width: 500px;
+  height: 30px;
+  margin-left: 270px;
+  font-size: 16px;
+}
+
+.navbar-search {
+  font-size: 24px;
+}
