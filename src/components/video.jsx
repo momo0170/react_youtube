@@ -1,42 +1,29 @@
-import React, { useEffect } from 'react';
-import { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from '../css/video.module.css';
+import PropTypes from 'prop-types';
 
-function Video() {
-  const [loading, setLoading] = useState(true);
-  const [video, setVideo] = useState([]);
-  useEffect(() => {
-    var requestOptions = {
-      method: 'GET',
-      redirect: 'follow',
-    };
-
-    fetch(
-      'https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=30&q=손흥민&key=AIzaSyDuHpbqM5TukVX_46jz6_ii0gus5XQxmqY',
-      requestOptions
-    )
-      .then((response) => response.json())
-      .then((result) => {
-        console.log(result);
-        setVideo(result.items);
-        setLoading(false);
-      })
-      .catch((error) => console.log('error', error));
-  }, []);
+function Video({ video, loading }) {
+  console.log('This is video');
+  console.log('==============');
   return (
     <div className={styles.videos}>
       {loading ? (
-        <h1>Loading</h1>
+        <h1>Loading...</h1>
       ) : (
         <>
           {video.map((item) => (
             <div className={styles.video} key={item.id.videoId}>
               <Link to={`/video/${item.id.videoId}`}>
                 <img src={item.snippet.thumbnails.medium.url} />
-                <span className={styles.title}>{item.snippet.title}</span>
+                <div className={styles.info}>
+                  <div className={styles.detail}>
+                    <span className={styles.title}>{item.snippet.title}</span>
+                    <span className={styles.channelName}></span>
+                    <span className={styles.viewAndTime}></span>
+                  </div>
+                </div>
               </Link>
-              {/* <div className={styles.title}>{item.snippet.title}</div> */}
             </div>
           ))}
         </>
@@ -44,4 +31,7 @@ function Video() {
     </div>
   );
 }
+Video.propTypes = {
+  loading: PropTypes.bool,
+};
 export default Video;
