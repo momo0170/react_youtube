@@ -2,11 +2,12 @@ import React from 'react';
 import styles from '../css/relatedVideos.module.css';
 
 function RelatedVIdeos({ item }) {
+  console.log(item);
   return (
     <div className={styles.video}>
       <img
         className={styles.thumbnail}
-        src={item.snippet.thumbnails.default.url}
+        src={item.snippet.thumbnails.medium.url}
       />
       <div className={styles.TitleAndName}>
         <span className={styles.videoTitle}>{item.snippet.title}</span>

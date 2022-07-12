@@ -16,10 +16,10 @@ body {
 main {
   margin: 40px 60px;
   display: grid;
-  grid-template-columns: 3fr 2fr;
-  grid-template-rows: 400px 200px;
+  grid-template-columns: 4fr 2fr;
+  grid-template-rows: 400px 300px;
   column-gap: 30px;
-  row-gap: 30px;
+  row-gap: 70px;
 }
 
 .iframeContainer {
