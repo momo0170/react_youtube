@@ -1,10 +1,16 @@
-button {
+.button {
   cursor: pointer;
   background-color: transparent;
-  border: 0;
-  margin: 0 10px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  border-radius: 5px;
+  padding: 7px 7px;
+  margin: 10px;
+  background-color: rgba(0, 0, 0, 0.05);
 }
-
+.button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
 .navbar {
   display: flex;
   align-items: center;
@@ -28,17 +34,29 @@ button {
 
 .navbar-input {
   width: 500px;
-  height: 30px;
+  height: 40px;
   margin-left: 270px;
   font-size: 16px;
-  border: 1px solid black;
+  box-sizing: border-box;
   border-radius: 5px;
+  padding-left: 10px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border: none;
+  outline: 0;
+}
+
+.navbar-input:hover {
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  /* transition: border 1s linear; */
 }
 
 .navbar-input:focus {
-  border: 1.5px solid red;
+  background-color: white;
+  border: 2px solid red;
   border-radius: 5px;
-  outline: none;
+  transition-property: border, background-color;
+  transition-duration: 0.4s;
+  transition-timing-function: ease;
 }
 
 .navbar-search {
