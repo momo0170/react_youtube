@@ -15,7 +15,10 @@ function Video({ video, loading }) {
           {video.map((item) => (
             <div className={styles.video} key={item.id.videoId}>
               <Link to={`/video/${item.id.videoId}`}>
-                <img src={item.snippet.thumbnails.medium.url} />
+                <img
+                  className={styles.videoImg}
+                  src={item.snippet.thumbnails.medium.url}
+                />
                 <div className={styles.info}>
                   <div className={styles.detail}>
                     <span className={styles.title}>{item.snippet.title}</span>

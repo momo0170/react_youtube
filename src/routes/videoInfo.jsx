@@ -41,7 +41,7 @@ function VideoInfo({ video, loading }) {
           </div>
           <aside>
             {video.map((item) => (
-              <RelatedVIdeos key={item.id.videoId} />
+              <RelatedVIdeos key={item.id.videoId} item={item} />
             ))}
           </aside>
           <section>

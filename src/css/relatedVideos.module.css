@@ -1,0 +1,35 @@
+.video {
+  display: flex;
+  width: 96%;
+  height: 130px;
+  margin: 10px 10px;
+}
+.thumbnail {
+  flex-basis: 45%;
+  line-height: 130px;
+}
+
+.TitleAndName {
+  flex-basis: 55%;
+  display: flex;
+  flex-direction: column;
+  margin: 5px 5px;
+}
+
+.TitleAndName span {
+  margin-bottom: 3px;
+}
+
+.videoTitle {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-weight: 500;
+}
+.channelName,
+.upload {
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.7);
+}

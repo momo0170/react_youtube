@@ -6,7 +6,7 @@ import { useRef, useState, useEffect } from 'react';
 
 function App() {
   const inputRef = useRef();
-  const [keyword, setKeyword] = useState('bts');
+  const [keyword, setKeyword] = useState('맥북');
   const [loading, setLoading] = useState(true);
   const [video, setVideo] = useState([]);
 
