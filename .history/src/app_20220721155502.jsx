@@ -1,4 +1,10 @@
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Navigate,
+  useNavigate,
+} from 'react-router-dom';
 import Home from './routes/home';
 import VideoInfo from './routes/videoInfo';
 import Navbar from './components/navbar';
@@ -15,7 +21,7 @@ function App() {
     e.preventDefault();
     setKeyword(inputRef.current.value);
     inputRef.current.value = '';
-    navigate(`${process.env.PUBLIC_URL}/`);
+    navigate('/');
   };
 
   // keyword가 변경될 때마다 실행
@@ -41,7 +47,7 @@ function App() {
   console.log('This is app');
   console.log(video);
   return (
-    <>
+    <BrowserRouter>
       <Navbar onSubmit={onSubmit} inputRef={inputRef} />
       <Routes>
         <Route
@@ -54,7 +60,7 @@ function App() {
           loading={loading}
         />
       </Routes>
-    </>
+    </BrowserRouter>
   );
 }
 

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import RelatedVIdeos from '../components/relatedVIdeos';
 import styles from '../css/videoInfo.module.css';
 
@@ -17,7 +17,7 @@ function VideoInfo({ video, loading }) {
         setChannel(result.items[0]);
       })
       .catch((error) => console.log('error', error));
-  }, [channel]);
+  }, []);
 
   console.log('This is videoInfo');
   console.log(channel);
@@ -32,8 +32,7 @@ function VideoInfo({ video, loading }) {
           <div className={styles.iframeContainer}>
             <iframe
               className={styles.iframe}
-              width="100%"
-              height="100%"
+              id="ytplayer"
               type="text/html"
               src={`https://www.youtube.com/embed/${videoID}`}
               frameBorder="0"
@@ -42,9 +41,7 @@ function VideoInfo({ video, loading }) {
           </div>
           <aside>
             {video.map((item) => (
-              <Link to={`/video/${item.id.videoId}`} key={item.id.videoId}>
-                <RelatedVIdeos item={item} />
-              </Link>
+              <RelatedVIdeos key={item.id.videoId} item={item} />
             ))}
           </aside>
           <section>

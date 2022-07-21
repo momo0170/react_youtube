@@ -1,4 +1,4 @@
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
 import Home from './routes/home';
 import VideoInfo from './routes/videoInfo';
 import Navbar from './components/navbar';

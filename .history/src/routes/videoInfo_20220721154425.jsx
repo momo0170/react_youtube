@@ -17,7 +17,7 @@ function VideoInfo({ video, loading }) {
         setChannel(result.items[0]);
       })
       .catch((error) => console.log('error', error));
-  }, [channel]);
+  }, []);
 
   console.log('This is videoInfo');
   console.log(channel);

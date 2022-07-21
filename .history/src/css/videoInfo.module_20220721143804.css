@@ -17,17 +17,17 @@ main {
   height: 800px;
   margin: 40px 60px;
   display: grid;
-  grid-template-columns: 4fr 450px;
-  grid-template-rows: 50% 300px;
+  grid-template-columns: 4fr 400px;
+  grid-template-rows: minmax(2fr, 100%) 300px;
   column-gap: 30px;
-  row-gap: 40px;
+  row-gap: 5px;
 }
 
 .iframeContainer {
   position: relative;
   width: 100%;
   height: 0;
-  padding-bottom: 45.25%;
+  padding-bottom: 53.25%;
 }
 
 .iframeContainer .iframe {
@@ -67,4 +67,11 @@ section {
 .upload span {
   padding-right: 10px;
   font-weight: 600;
+}
+
+@media screen and (max-width: 1200px) {
+  main {
+    /* grid-template-columns: 4fr;
+    grid-template-rows: minmax(2fr, 100%) 300px 300px; */
+  }
 }

@@ -17,7 +17,7 @@ function VideoInfo({ video, loading }) {
         setChannel(result.items[0]);
       })
       .catch((error) => console.log('error', error));
-  }, [channel]);
+  }, []);
 
   console.log('This is videoInfo');
   console.log(channel);
@@ -42,7 +42,7 @@ function VideoInfo({ video, loading }) {
           </div>
           <aside>
             {video.map((item) => (
-              <Link to={`/video/${item.id.videoId}`} key={item.id.videoId}>
+              <Link to={`/video/${videoID}`} key={item.id.videoId}>
                 <RelatedVIdeos item={item} />
               </Link>
             ))}

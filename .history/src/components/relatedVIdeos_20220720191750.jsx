@@ -2,6 +2,7 @@ import React from 'react';
 import styles from '../css/relatedVideos.module.css';
 
 function RelatedVIdeos({ item }) {
+  console.log(item);
   return (
     <div className={styles.video}>
       <img

@@ -1,4 +1,4 @@
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './routes/home';
 import VideoInfo from './routes/videoInfo';
 import Navbar from './components/navbar';
@@ -6,7 +6,6 @@ import { useRef, useState, useEffect } from 'react';
 
 function App() {
   const inputRef = useRef();
-  const navigate = useNavigate();
   const [keyword, setKeyword] = useState('맥북');
   const [loading, setLoading] = useState(true);
   const [video, setVideo] = useState([]);
@@ -15,7 +14,6 @@ function App() {
     e.preventDefault();
     setKeyword(inputRef.current.value);
     inputRef.current.value = '';
-    navigate(`${process.env.PUBLIC_URL}/`);
   };
 
   // keyword가 변경될 때마다 실행
@@ -41,7 +39,7 @@ function App() {
   console.log('This is app');
   console.log(video);
   return (
-    <>
+    <BrowserRouter>
       <Navbar onSubmit={onSubmit} inputRef={inputRef} />
       <Routes>
         <Route
@@ -54,7 +52,7 @@ function App() {
           loading={loading}
         />
       </Routes>
-    </>
+    </BrowserRouter>
   );
 }
 
