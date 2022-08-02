@@ -1,5 +1,5 @@
 import { Routes, Route, useNavigate } from 'react-router-dom';
-import Video from './routes/video';
+import Home from './routes/video';
 import VideoInfo from './routes/videoInfo';
 import Navbar from './components/navbar';
 import { useRef, useState, useEffect } from 'react';

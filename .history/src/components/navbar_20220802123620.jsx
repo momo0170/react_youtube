@@ -16,12 +16,12 @@ function Navbar({ onSubmit, inputRef }) {
           type="text"
           className={styles['navbar-input']}
         />
-        <button className={styles.button}>
-          <i
-            className={`fa-solid fa-magnifying-glass fa-lg ${styles['navbar-search']}`}
-          ></i>
-        </button>
+      <button className={styles.button}>
       </div>
+        <i
+          className={`fa-solid fa-magnifying-glass fa-lg ${styles['navbar-search']}`}
+        ></i>
+      </button>
     </form>
   );
 }

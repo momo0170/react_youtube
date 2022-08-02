@@ -9,7 +9,7 @@ function Navbar({ onSubmit, inputRef }) {
         <i className={`fa-brands fa-youtube ${styles['navbar-logo']}`}></i>
         <span className={styles['navbar-name']}>YouTube</span>
       </div>
-      <div className={styles.input}>
+      <div>
         <input
           ref={inputRef}
           placeholder="검색"

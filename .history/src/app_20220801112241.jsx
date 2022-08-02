@@ -1,5 +1,5 @@
 import { Routes, Route, useNavigate } from 'react-router-dom';
-import Video from './routes/video';
+import Home from './routes/home';
 import VideoInfo from './routes/videoInfo';
 import Navbar from './components/navbar';
 import { useRef, useState, useEffect } from 'react';
@@ -38,6 +38,8 @@ function App() {
       .catch((error) => console.log('error', error));
   }, [keyword]);
 
+  console.log('This is app');
+  console.log(video);
   return (
     <>
       <Navbar onSubmit={onSubmit} inputRef={inputRef} />
