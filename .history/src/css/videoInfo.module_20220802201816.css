@@ -15,7 +15,7 @@ body {
 
 main {
   height: 800px;
-  margin: 40px 30px;
+  margin: 40px 60px;
   display: grid;
   grid-template-columns: 3fr 1.5fr;
   grid-template-rows: 1fr 1fr;
@@ -52,13 +52,13 @@ section {
 }
 
 .tags {
-  font-size: 12px;
+  font-size: 0.5em;
   color: rgb(60, 100, 206);
   margin-bottom: 10px;
 }
 
 .title {
-  font-size: 1.5em;
+  font-size: 1.5rem;
   font-weight: 600;
   margin-bottom: 10px;
 }
@@ -76,12 +76,9 @@ section {
   main {
     display: flex;
     flex-direction: column;
-    height: 1500px;
   }
 
   aside {
-    margin-top: 20px;
     min-height: 400px;
-    max-height: 400px;
   }
 }
