@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, memo } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import RelatedVIdeos from '../components/relatedVIdeos';
 import styles from '../css/videoInfo.module.css';
@@ -51,7 +51,7 @@ const AsideVideos = styled.div`
   @media screen and (max-width: 1100px) {
     border-bottom: none;
     margin-bottom: 0;
-    animation: ${(props) => (props.isClick ? AsideHide : AsideLook)} 0.2s ease;
+    animation: ${(isClick) => (isClick ? AsideHide : AsideLook)} 0.2s ease;
     animation-fill-mode: forwards;
   }
 `;
@@ -63,8 +63,8 @@ const Button = styled.button`
   outline: 0;
   background-color: white;
   cursor: pointer;
-  animation: ${(props) => (props.isClick ? ButtonRotateOne : ButtonRotateTwo)}
-    0.2s ease;
+  animation: ${(isClick) => (isClick ? ButtonRotateOne : ButtonRotateTwo)} 0.2s
+    ease;
   animation-fill-mode: forwards;
 
   @media screen and (max-width: 1100px) {
@@ -80,6 +80,8 @@ function VideoInfo({ video, loading }) {
   const handleRotate = () => {
     setIsClick(!isClick);
   };
+
+  console.log('click');
   useEffect(() => {
     fetch(
       `https://youtube.googleapis.com/youtube/v3/videos?part=snippet&id=${videoID}&key=AIzaSyDuHpbqM5TukVX_46jz6_ii0gus5XQxmqY`
@@ -156,4 +158,4 @@ function VideoInfo({ video, loading }) {
     </main>
   );
 }
-export default VideoInfo;
+export default memo(VideoInfo);

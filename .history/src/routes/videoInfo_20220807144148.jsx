@@ -51,7 +51,7 @@ const AsideVideos = styled.div`
   @media screen and (max-width: 1100px) {
     border-bottom: none;
     margin-bottom: 0;
-    animation: ${(props) => (props.isClick ? AsideHide : AsideLook)} 0.2s ease;
+    animation: ${(isClick) => (isClick ? AsideHide : AsideLook)} 0.2s ease;
     animation-fill-mode: forwards;
   }
 `;
@@ -63,15 +63,14 @@ const Button = styled.button`
   outline: 0;
   background-color: white;
   cursor: pointer;
-  animation: ${(props) => (props.isClick ? ButtonRotateOne : ButtonRotateTwo)}
-    0.2s ease;
+  animation: ${(isClick) => (isClick ? ButtonRotateOne : ButtonRotateTwo)} 0.2s
+    ease;
   animation-fill-mode: forwards;
 
   @media screen and (max-width: 1100px) {
     display: block;
   }
 `;
-
 function VideoInfo({ video, loading }) {
   const { videoID } = useParams();
   const [channel, setChannel] = useState([]);
@@ -91,6 +90,7 @@ function VideoInfo({ video, loading }) {
       .catch((error) => console.log('error', error));
   }, [videoID]);
 
+  console.log('rendering');
   return (
     <main>
       {loading ? (
@@ -111,11 +111,11 @@ function VideoInfo({ video, loading }) {
           <aside>
             <div className={styles.more}>
               <div>관련 동영상</div>
-              <Button onClick={handleRotate} isClick={isClick}>
+              <Button onClick={handleRotate} isClick={isclick}>
                 <i className="fa-solid fa-angle-up"></i>
               </Button>
             </div>
-            <AsideVideos isClick={isClick}>
+            <AsideVideos>
               {video.map((item) => (
                 <Link to={`/video/${item.id.videoId}`} key={item.id.videoId}>
                   <RelatedVIdeos item={item} />

@@ -41,7 +41,6 @@ const AsideLook = keyframes`
     height: 349px;
   }
 `;
-
 const AsideVideos = styled.div`
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-top: none;
@@ -51,7 +50,7 @@ const AsideVideos = styled.div`
   @media screen and (max-width: 1100px) {
     border-bottom: none;
     margin-bottom: 0;
-    animation: ${(props) => (props.isClick ? AsideHide : AsideLook)} 0.2s ease;
+    animation: ${isClick ? AsideHide : AsideLook} 0.2s ease;
     animation-fill-mode: forwards;
   }
 `;
@@ -63,15 +62,13 @@ const Button = styled.button`
   outline: 0;
   background-color: white;
   cursor: pointer;
-  animation: ${(props) => (props.isClick ? ButtonRotateOne : ButtonRotateTwo)}
-    0.2s ease;
+  animation: ${isClick ? ButtonRotateOne : ButtonRotateTwo} 0.2s ease;
   animation-fill-mode: forwards;
 
   @media screen and (max-width: 1100px) {
     display: block;
   }
 `;
-
 function VideoInfo({ video, loading }) {
   const { videoID } = useParams();
   const [channel, setChannel] = useState([]);
@@ -79,7 +76,9 @@ function VideoInfo({ video, loading }) {
 
   const handleRotate = () => {
     setIsClick(!isClick);
+    console.log('clicked');
   };
+
   useEffect(() => {
     fetch(
       `https://youtube.googleapis.com/youtube/v3/videos?part=snippet&id=${videoID}&key=AIzaSyDuHpbqM5TukVX_46jz6_ii0gus5XQxmqY`
@@ -91,6 +90,7 @@ function VideoInfo({ video, loading }) {
       .catch((error) => console.log('error', error));
   }, [videoID]);
 
+  console.log('rendering');
   return (
     <main>
       {loading ? (
@@ -111,11 +111,11 @@ function VideoInfo({ video, loading }) {
           <aside>
             <div className={styles.more}>
               <div>관련 동영상</div>
-              <Button onClick={handleRotate} isClick={isClick}>
+              <Button onClick={handleRotate}>
                 <i className="fa-solid fa-angle-up"></i>
               </Button>
             </div>
-            <AsideVideos isClick={isClick}>
+            <AsideVideos>
               {video.map((item) => (
                 <Link to={`/video/${item.id.videoId}`} key={item.id.videoId}>
                   <RelatedVIdeos item={item} />

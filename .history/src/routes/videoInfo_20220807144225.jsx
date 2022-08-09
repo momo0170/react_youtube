@@ -51,7 +51,7 @@ const AsideVideos = styled.div`
   @media screen and (max-width: 1100px) {
     border-bottom: none;
     margin-bottom: 0;
-    animation: ${(props) => (props.isClick ? AsideHide : AsideLook)} 0.2s ease;
+    animation: ${(isClick) => (isClick ? AsideHide : AsideLook)} 0.2s ease;
     animation-fill-mode: forwards;
   }
 `;
@@ -63,15 +63,14 @@ const Button = styled.button`
   outline: 0;
   background-color: white;
   cursor: pointer;
-  animation: ${(props) => (props.isClick ? ButtonRotateOne : ButtonRotateTwo)}
-    0.2s ease;
+  animation: ${(isClick) => (isClick ? ButtonRotateOne : ButtonRotateTwo)} 0.2s
+    ease;
   animation-fill-mode: forwards;
 
   @media screen and (max-width: 1100px) {
     display: block;
   }
 `;
-
 function VideoInfo({ video, loading }) {
   const { videoID } = useParams();
   const [channel, setChannel] = useState([]);
@@ -91,6 +90,8 @@ function VideoInfo({ video, loading }) {
       .catch((error) => console.log('error', error));
   }, [videoID]);
 
+  console.log('rendering');
+  console.log(isClick);
   return (
     <main>
       {loading ? (
